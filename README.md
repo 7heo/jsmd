@@ -1,5 +1,5 @@
 # jsmd
-JS M.D. - Client side support for Markdown
+JS M.D. - Client side support for Markdown (based on [marked](https://github.com/chjj/marked/))
 
 Browsers should support markdown in addition of all the HTML versions they support.
 
