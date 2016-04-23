@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="Boilerplate page for markdown interpretation">
+  <meta name="author" content="boilerplate">
+  <link rel="stylesheet" href="style.css?v=1.0">
+  <script src="https://raw.githubusercontent.com/chjj/marked/master/marked.min.js"></script>
+  <script>
+  openpage = function() {
+    var xhttp = new XMLHttpRequest();
+    var page = window.location.href.split('#');
+    page[0] = '/';
+    page = page.join('/').replace(/\/+/g, '/').replace(/\/$/g, '/index');
+
+    xhttp.onreadystatechange = function() {
+      if (xhttp.readyState == 4 && xhttp.status == 200) {
+	    document.body.innerHTML = marked(xhttp.responseText);
+	    var elems = document.getElementsByTagName('a');
+	    var query = [];
+        for (var i = 0; i < elems.length; i++)
+	    {
+		  query = elems[i].href.split('/');
+		  if(query[2] == window.location.hostname)
+		  {
+			query.shift();
+			query.shift();
+			query.shift();
+			query = query.join('/');
+			query = '#/' + query;
+			elems[i].href = query;
+		  }
+	    }
+      }
+      else if(xhttp.readyState == 4 && xhttp.status == 404)
+	    alert('broken link');
+    };
+
+    xhttp.open("GET", page + ".md", true);
+    xhttp.send();
+  }
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body onload="openpage()" onhashchange="openpage()">
+</body>
+</html>
