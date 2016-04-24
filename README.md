@@ -19,5 +19,5 @@ Installation
 0. **Edit/Add** HTML `<meta ... />` fields for SEO (optional).
 0. **Profit**.
 
-<sup>1</sup> *The default page (that corresponds to the link `/`) shall be named `index.md`.*\\
+<sup>1</sup> *The default page (that corresponds to the link `/`) shall be named `index.md`.*<br />
 <sup>2</sup> *Note that for each markdown link ending with `/`, a folder with the name of your link will be searched for and `index.md` file, instead of a file ending with `.md` placed at the root of your website*.
