@@ -12,12 +12,13 @@ Please open an issue or a pull request if you have bugs, suggestions or improvem
 Installation
 ============
 
-0. **Place** the index.html file in the root of your website.
+0. **Place** the index.html file in the root of your website **on your server**<sup>1</sup>.
 0. **Create** new files, containing your content, formatted in markdown.
-0. **Name** those files after the name of each of your pages<sup>1</sup> (the internal links in your markdown), and add an `.md` extension to their name<sup>2</sup>.
+0. **Name** those files after the name of each of your pages<sup>2</sup> (the internal links in your markdown), and add an `.md` extension to their name<sup>3</sup>.
 0. **Add** some CSS style (optional).
 0. **Edit/Add** HTML `<meta ... />` fields for SEO (optional).
 0. **Profit**.
 
-<sup>1</sup> *The default page (that corresponds to the link `/`) shall be named `index.md`.*  
-<sup>2</sup> *Note that for each markdown link ending with `/`, a folder with the name of your link will be searched for and `index.md` file, instead of a file ending with `.md` placed at the root of your website*.
+<sup>1</sup> *Using that code on a local, serverless environment (e.g., double clicking on index.html), will **not** work, due to the security limitations on Ajax requests.*
+<sup>2</sup> *The default page (that corresponds to the link `/`) shall be named `index.md`.*  
+<sup>3</sup> *Note that for each markdown link ending with `/`, a folder with the name of your link will be searched for and `index.md` file, instead of a file ending with `.md` placed at the root of your website*.
