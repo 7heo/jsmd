@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>JS M.D. based website - Please enable javascript</title>
   <meta name="description" content="Boilerplate page for markdown interpretation">
   <meta name="author" content="boilerplate">
   <link rel="stylesheet" href="style.css?v=1.0">
@@ -10,31 +10,36 @@
   <script>
   openpage = function() {
     var xhttp = new XMLHttpRequest();
+    var domain = window.location.hostname;
     var page = window.location.href.split('#');
     page[0] = '/';
     page = page.join('/').replace(/\/+/g, '/').replace(/\/$/g, '/index');
 
     xhttp.onreadystatechange = function() {
       if (xhttp.readyState == 4 && xhttp.status == 200) {
-	    document.body.innerHTML = marked(xhttp.responseText);
-	    var elems = document.getElementsByTagName('a');
-	    var query = [];
+      	document.title = domain + ' - ' + page;
+				document.body.innerHTML = marked(xhttp.responseText);
+				var elems = document.getElementsByTagName('a');
+				var query = [];
         for (var i = 0; i < elems.length; i++)
-	    {
-		  query = elems[i].href.split('/');
-		  if(query[2] == window.location.hostname)
-		  {
-			query.shift();
-			query.shift();
-			query.shift();
-			query = query.join('/');
-			query = '#/' + query;
-			elems[i].href = query;
-		  }
-	    }
-      }
+				{
+					query = elems[i].href.split('/');
+					if(query[2] == domain)
+					{
+						query.shift();
+						query.shift();
+						query.shift();
+						query = query.join('/');
+						query = '#/' + query;
+						elems[i].href = query;
+					}
+				}
+			}
       else if(xhttp.readyState == 4 && xhttp.status == 404)
-	    alert('broken link');
+      {
+      	document.title = domain + ' - 404 - Page ' + page + ' not found.';
+      	document.body.innerHTML = '<h1 id="error404-header">Error 404</h1><p id="error404-paragraph">Page ' + page + 'not found.</p>';
+      }
     };
 
     xhttp.open("GET", page + ".md", true);
@@ -46,5 +51,6 @@
   <![endif]-->
 </head>
 <body onload="openpage()" onhashchange="openpage()">
+  This website requires a javascript capable browser. Please use a browser that supports javascript and/or unblock this website.
 </body>
 </html>
