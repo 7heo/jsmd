@@ -12,8 +12,9 @@ Please open an issue or a pull request if you have bugs, suggestions or improvem
 Installation
 ============
 
-0. Place the index.html file in the root of your website.
-0. Write your content in markdown, inner links are to be used without extensions, if links are ended with ```/```, **jsmd** will search for a folder having that link's name, and containing an ```index.md``` file (instead of a file named after that link's target, and having the ```.md``` extension).
-0. Add some CSS style (optional).
-0. Edit/Add HTML ```<meta ... />``` fields for SEO (optional).
-0. Profit.
+0. **Place** the index.html file in the root of your website.
+0. **Create** new Markdown *files*, containing your content in markdown.
+0. **Name** those files after the name of each of your pages (the internal links in your markdown), and add an `.md` extension to their name. *Note that folders will by default be searched for `index.md` if a markdown link ends with `/`*.
+0. **Add** some CSS style (optional).
+0. **Edit/Add** HTML `<meta ... />` fields for SEO (optional).
+0. **Profit**.
