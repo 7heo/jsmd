@@ -19,4 +19,4 @@ Installation
 0. **Edit/Add** HTML `<meta ... />` fields for SEO (optional).
 0. **Profit**.
 
-<sup>1</sup> *Note that for each markdown link ending with `/`, a folder with the name of your link will be searched for `index.md`, instead of a file ending with `.md`*.
+<sup>1</sup> *Note that for each markdown link ending with `/`, a folder with the name of your link will be searched for and `index.md` file, instead of a file ending with `.md` placed at the root of your website*.
