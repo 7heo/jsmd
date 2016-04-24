@@ -8,20 +8,20 @@
   <link rel="stylesheet" href="style.css?v=1.0">
   <script src="https://raw.githubusercontent.com/chjj/marked/master/marked.min.js"></script>
   <script>
-  openpage = function() {
-    var xhttp = new XMLHttpRequest();
-    var domain = window.location.hostname;
-    var page = window.location.href.split('#');
-    page[0] = '/';
-    page = page.join('/').replace(/\/+/g, '/').replace(/\/$/g, '/index');
+	openpage = function() {
+		var xhttp = new XMLHttpRequest();
+		var domain = window.location.hostname;
+		var page = window.location.href.split('#');
+		page[0] = '/';
+		page = page.join('/').replace(/\/+/g, '/').replace(/\/$/g, '/index');
 
-    xhttp.onreadystatechange = function() {
-      if (xhttp.readyState == 4 && xhttp.status == 200) {
-      	document.title = domain + ' - ' + page;
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				document.title = domain + ' - ' + page;
 				document.body.innerHTML = marked(xhttp.responseText);
 				var elems = document.getElementsByTagName('a');
 				var query = [];
-        for (var i = 0; i < elems.length; i++)
+				for (var i = 0; i < elems.length; i++)
 				{
 					query = elems[i].href.split('/');
 					if(query[2] == domain)
@@ -35,16 +35,16 @@
 					}
 				}
 			}
-      else if(xhttp.readyState == 4 && xhttp.status == 404)
-      {
-      	document.title = domain + ' - 404 - Page ' + page + ' not found.';
-      	document.body.innerHTML = '<h1 id="error404-header">Error 404</h1><p id="error404-paragraph">Page ' + page + 'not found.</p>';
-      }
-    };
+			else if(xhttp.readyState == 4 && xhttp.status == 404)
+			{
+				document.title = domain + ' - 404 - Page ' + page + ' not found.';
+				document.body.innerHTML = '<h1 id="error404-header">Error 404</h1><p id="error404-paragraph">Page ' + page + 'not found.</p>';
+			}
+		};
 
-    xhttp.open("GET", page + ".md", true);
-    xhttp.send();
-  }
+		xhttp.open("GET", page + ".md", true);
+		xhttp.send();
+	}
   </script>
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
