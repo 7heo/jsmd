@@ -14,10 +14,11 @@
 		var page = window.location.href.split('#');
 		page[0] = '/';
 		page = page.join('/').replace(/\/+/g, '/').replace(/\/$/g, '/index');
+		var page_name = page.replace(/^\//g, '').replace(/\/index$/g, '/');
 
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState == 4 && xhttp.status == 200) {
-				document.title = domain + ' - ' + page;
+				document.title = domain + ' - ' + page_name;
 				document.body.innerHTML = marked(xhttp.responseText);
 				var elems = document.getElementsByTagName('a');
 				var query = [];
@@ -37,8 +38,8 @@
 			}
 			else if(xhttp.readyState == 4 && xhttp.status == 404)
 			{
-				document.title = domain + ' - 404 - Page ' + page + ' not found.';
-				document.body.innerHTML = '<h1 id="error404-header">Error 404</h1><p id="error404-paragraph">Page ' + page + ' not found.</p>';
+				document.title = domain + ' - 404 - Page ' + page_name + ' not found.';
+				document.body.innerHTML = '<h1 id="error404-header">Error 404</h1><p id="error404-paragraph">Page ' + page_name + ' not found.</p>';
 			}
 		};
 
