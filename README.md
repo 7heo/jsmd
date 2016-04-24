@@ -19,6 +19,6 @@ Installation
 0. **Edit/Add** HTML `<meta ... />` fields for SEO (optional).
 0. **Profit**.
 
-<sup>1</sup> *Using that code on a local, serverless environment (e.g., double clicking on index.html), will **not** work, due to the security limitations on Ajax requests.*  
+<sup>1</sup> *Using that code on a local, serverless environment (e.g., double clicking on index.html), will* **not** *work, due to the security limitations on Ajax requests.*  
 <sup>2</sup> *The default page (that corresponds to the link `/`) shall be named `index.md`.*  
 <sup>3</sup> *Note that for each markdown link ending with `/`, a folder with the name of your link will be searched for and `index.md` file, instead of a file ending with `.md` placed at the root of your website*.
